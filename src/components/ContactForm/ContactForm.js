@@ -1,7 +1,8 @@
 import { Formik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
-import { getContacts } from 'redux/selectors';
-import { addContact } from 'redux/contactSlice';
+import { selectContacts } from 'redux/selectors';
+import { addContact } from 'redux/operations';
+
 
 import * as Yup from 'yup';
 import "yup-phone"; 
@@ -9,15 +10,16 @@ import { ErrMessage, StyledForm, StyledField, Label, BtnAdd } from './ContactFor
 
 const quizSchema = Yup.object().shape({
   name: Yup.string().min(3, 'Too short!').required('This field is required!'),
-    number: Yup.string().matches(/^\d{3}-\d{2}-\d{2}$/, 'Must be in format: 000-00-00').required('This field is required!')
+    number: Yup.string().matches(/^\d{3}-\d{3}-\d{4}$/, 'Must be in format: 000-000-0000').required('This field is required!')
   
 });
 
 const ContactForm = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
+  console.log(contacts)
   
-  function addNewContact({ name, number }) {
+  function addNewContact({ name, phone }) {
    
     const hasContact = contacts.some(contact => contact.name.toLowerCase().includes(name.toLowerCase()))
     
@@ -25,7 +27,7 @@ const ContactForm = () => {
       return alert(
         `WARNING! ${name} is already in contacts`) 
     }
-    dispatch(addContact(name, number));
+    dispatch(addContact({ name, phone }));
   }
 
    function handleFormSubmit(values, { setSubmitting, resetForm }) {
@@ -53,7 +55,7 @@ const ContactForm = () => {
           </Label>
 
           <Label>
-            Number (000-00-00)
+            Number (000-000-0000)
             <StyledField type="text" name="number" />
             <ErrMessage name="number" component="div" />
           </Label>

@@ -3,7 +3,7 @@ import { ListItem, BtnTrash } from './ContactItem.styled';
 import { HiTrash } from 'react-icons/hi';
 import { useDispatch } from 'react-redux';
 
-import { deleteContact } from 'redux/contactSlice';
+import { deleteContact } from 'redux/operations';
 
 export const ContactItem = (({ contact: { id, name, number }}) => {
     const dispatch = useDispatch();

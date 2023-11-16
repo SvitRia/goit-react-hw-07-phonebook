@@ -16,8 +16,6 @@ export const fetchContacts = createAsyncThunk(
   }
 );
 
-console.dir(fetchContacts())
-
 export const addContact = createAsyncThunk(
   "contacts/addContact",
   async (contact, thunkAPI) => {
@@ -55,4 +53,3 @@ export const filterContacts = createAsyncThunk(
     }
   }
 );
-console.log(fetchContacts())

@@ -7,7 +7,6 @@ export const Filter = () => {
 
   const dispatch = useDispatch();
   const filterName = useSelector(selectFilter).name;
-  console.log(selectFilter)
 
   return (
     <div>

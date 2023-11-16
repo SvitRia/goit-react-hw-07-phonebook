@@ -4,8 +4,9 @@ import { List } from './ContactList.styled';
 import { selectFilteredContacts } from 'redux/selectors';
 
 export const ContactList = (() => {
+   
     const contacts = useSelector(selectFilteredContacts);
-console.log(contacts)
+
     return (
             <div>
                 <List>

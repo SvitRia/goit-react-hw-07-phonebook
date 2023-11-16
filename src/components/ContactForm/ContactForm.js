@@ -17,7 +17,6 @@ const quizSchema = Yup.object().shape({
 const ContactForm = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
-  console.log(contacts);
 
   const handleFormSubmit = ({ name, phone }, { resetForm } ) => {
   const hasContact = contacts.some(contact => contact.name.toLowerCase().includes(name.toLowerCase()))

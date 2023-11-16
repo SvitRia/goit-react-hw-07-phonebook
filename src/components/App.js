@@ -9,14 +9,13 @@ import { Section } from './Sections/Sections.styled';
 
 
 export const App = () => {
-      const dispatch = useDispatch();
+const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
 
-    const truContacts = useSelector(selectContacts);
-    console.log(truContacts)
+    const сontacts = useSelector(selectContacts);
 
             return (
                 <div>
@@ -27,7 +26,7 @@ export const App = () => {
                     <Section>
                         <h2>Contacts</h2>
                         <Filter  />
-                        {truContacts.length?<ContactList />: <h3>Your phonebook is empty. Add your first contact</h3>}
+                        {сontacts.length?<ContactList />: <h3>Your phonebook is empty. Add your first contact</h3>}
                     </Section>
                 </div>
             );

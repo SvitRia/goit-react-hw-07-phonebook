@@ -1,4 +1,4 @@
-import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import { configureStore,combineReducers } from '@reduxjs/toolkit';
 import { contactsReducer } from './contactSlice';
 import { filtersReducer } from './filterSlice';
 // import {
@@ -22,13 +22,13 @@ const rootReducer = combineReducers({
 // const persistConfig = {
 //   key: 'root',
 //   storage,
-//   blacklist: ['filters'],
+//   blacklist: ['filter'],
 // };
 
 // const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
-  reducer: rootReducer,
+  reducer: rootReducer
 
   // middleware: getDefaultMiddleware =>
   //   getDefaultMiddleware({

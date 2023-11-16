@@ -12,8 +12,8 @@ export const selectFilteredContacts = createSelector(
    [selectContacts, selectFilter],
     (contacts, filter) => {
       console.log(contacts)
-    return contacts.filter(contact =>
-      contact.name.toUpperCase().includes(filter.name.toUpperCase())
+    return contacts.filter(item =>
+      item.name.toUpperCase().includes(filter.name.toUpperCase())
       );
       
   }
